@@ -7,29 +7,37 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
 
   const [currentPage, setCurrentPage] = React.useState(1)
   const exercisesPerPage = 9;
-  const indexOfLastExercise = currentPage * exercisesPerPage;
-  const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
-  const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise);
+  const startIndex = (currentPage - 1) * exercisesPerPage;
+  const currentExercises = [];
 
+  for (let i = startIndex; i < startIndex + exercisesPerPage && i < exercises.length; i++) {
+    currentExercises.push(exercises[i]);
+  }
   const paginate = (event, newPage) => {
     setCurrentPage(newPage)
     window.scrollTo({top: 1800, behavior: 'smooth'})
   }
 
   useEffect(() => {
-    const fetchExercisesData = async (data) => {
+    const fetchExercisesData = async () => {
       let exercisesData = [];
-
-      if(bodyPart === 'all'){
+  
+      if (bodyPart === 'all') {
         exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', ExercisesOptions);
+      } else {
+        exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`, ExercisesOptions);
       }
-      else{
-        exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodypart/${bodyPart}`, ExercisesOptions);
+  
+      if (exercisesData) {
+        setExercises(exercisesData); // Set the 'results' property as the state
+      } else {
+        setExercises([]); // Handle the case when 'results' property is not present
       }
-      setExercises(exercisesData);
-    }
-    fetchExercisesData()
-  },[bodyPart]);
+    };
+  
+    fetchExercisesData();
+  }, [bodyPart]);
+  
 
 
   return (
