@@ -28,9 +28,10 @@ const Detail = ({ exerciseDetail }) => {
       direction={{ xs: 'column', md: 'row' }}
       gap="30px"
       sx={{
+        mt: '50px',
         p: '20px',
         alignItems: 'center',
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#845555',
         borderRadius: '10px',
         boxShadow: '0px 5px 20px rgba(0, 0, 0, 0.1)',
         justifyContent: 'center',

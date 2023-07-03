@@ -6,13 +6,13 @@ const HeroBanner = ({ darkMode }) => {
   const theme = useTheme();
 
   return (
-    <Box
+    <Box 
       sx={{
         mt: { lg: '150px', xs: '70px' },
-        ml: { sm: '50px' },
+        ml: { sm: '0px' },
         position: 'relative',
         p: '20px',
-        backgroundColor: darkMode ? theme.palette.background.paper : '#f5f5f5',
+        backgroundColor: darkMode ? theme.palette.background.paper : '#845555',
         borderRadius: '10px',
         boxShadow: '0px 5px 20px rgba(0, 0, 0, 0.1)',
         
@@ -20,7 +20,7 @@ const HeroBanner = ({ darkMode }) => {
     >
       <Box sx={{ position: 'relative', zIndex: 1 }}>
         <Typography
-          color={darkMode ? theme.palette.primary.main : '#FF2655'}
+          color={darkMode ? theme.palette.primary.main : '#000'}
           fontSize="26px"
           fontWeight="600"
         >
@@ -33,7 +33,7 @@ const HeroBanner = ({ darkMode }) => {
           mt="30px"
           color={darkMode ? theme.palette.primary.main : ''}
         >
-          FitApp
+          FitnessApp
         </Typography>
 
         <Typography
@@ -51,7 +51,7 @@ const HeroBanner = ({ darkMode }) => {
           sx={{
             backgroundColor: darkMode
               ? theme.palette.secondary.main
-              : '#ff2655',
+              : '#000',
             padding: '19px',
           }}
         >
@@ -61,14 +61,14 @@ const HeroBanner = ({ darkMode }) => {
 
       <Typography
         fontWeight={600}
-        color={darkMode ? theme.palette.secondary.main : '#ff2625'}
+        color={darkMode ? theme.palette.secondary.main : '#fff'}
         sx={{
           opacity: '0.1',
           display: { lg: 'block', xs: 'none' },
           fontSize: '100px',
           position: 'absolute',
           top: '50%',
-          left: '43%',
+          left: '50%',
           transform: 'translate(-50%, -50%)',
           zIndex: 0,
         }}
