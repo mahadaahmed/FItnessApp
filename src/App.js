@@ -52,9 +52,6 @@ const App = () => {
         </Routes>
         <Footer />
       </Box>
-      <ThemeProvider theme={{}}>
-        <HeroBanner darkMode={darkMode} />
-      </ThemeProvider>
     </ThemeProvider>
   );
 };

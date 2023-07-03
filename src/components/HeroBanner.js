@@ -1,9 +1,10 @@
 import React from 'react';
-import { Box, Stack, Typography, Button } from '@mui/material';
+import { Box, Stack, Typography, Button, useTheme } from '@mui/material';
 import HeroBannerImage from '../assets/images/banner1.jpeg';
 
 const HeroBanner = ({ darkMode }) => {
-    console.log(darkMode)
+  const theme = useTheme();
+
   return (
     <Box
       sx={{
@@ -11,14 +12,15 @@ const HeroBanner = ({ darkMode }) => {
         ml: { sm: '50px' },
         position: 'relative',
         p: '20px',
-        backgroundColor: darkMode ? '#333333' : '#f5f5f5',
+        backgroundColor: darkMode ? theme.palette.background.paper : '#f5f5f5',
         borderRadius: '10px',
         boxShadow: '0px 5px 20px rgba(0, 0, 0, 0.1)',
+        
       }}
     >
       <Box sx={{ position: 'relative', zIndex: 1 }}>
         <Typography
-          color={darkMode ? '#FFAAAA' : '#FF2655'}
+          color={darkMode ? theme.palette.primary.main : '#FF2655'}
           fontSize="26px"
           fontWeight="600"
         >
@@ -29,7 +31,7 @@ const HeroBanner = ({ darkMode }) => {
           sx={{ fontSize: { lg: '44px', xs: '40px' } }}
           mb="23px"
           mt="30px"
-          color={darkMode ? '#FFFFFF' : '#000000'}
+          color={darkMode ? theme.palette.primary.main : ''}
         >
           FitApp
         </Typography>
@@ -38,7 +40,7 @@ const HeroBanner = ({ darkMode }) => {
           fontSize="22px"
           lineHeight="30px"
           mb={3}
-          color={darkMode ? '#CCCCCC' : '#000000'}
+          color={darkMode ? theme.palette.primary.main : ''}
         >
           Discover a new level of fitness!
         </Typography>
@@ -47,7 +49,9 @@ const HeroBanner = ({ darkMode }) => {
           color="error"
           href="#exercises"
           sx={{
-            backgroundColor: darkMode ? '#FFAAAA' : '#FF2655',
+            backgroundColor: darkMode
+              ? theme.palette.secondary.main
+              : '#ff2655',
             padding: '19px',
           }}
         >
@@ -57,7 +61,7 @@ const HeroBanner = ({ darkMode }) => {
 
       <Typography
         fontWeight={600}
-        color={darkMode ? '#FFAAAA' : '#FF2625'}
+        color={darkMode ? theme.palette.secondary.main : '#ff2625'}
         sx={{
           opacity: '0.1',
           display: { lg: 'block', xs: 'none' },
@@ -72,25 +76,10 @@ const HeroBanner = ({ darkMode }) => {
         Greatness Is <br />
         Awaiting You
       </Typography>
-
-      <img
-        src={HeroBannerImage}
-        alt="banner"
-        className="hero-banner-img"
-        style={{
-          display: { lg: 'block', xs: 'none' },
-          position: 'absolute',
-          top: '50%',
-          right: '0',
-          transform: 'translateY(-50%)',
-          zIndex: 2,
-          width: '312px',
-          borderRadius: '10px',
-          boxShadow: '0px 5px 20px rgba(0, 0, 0, 0.1)',
-        }}
-      />
     </Box>
   );
 };
 
 export default HeroBanner;
+
+
