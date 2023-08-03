@@ -1,4 +1,4 @@
-# FitnessApp
+# <a href="https://mahadfitnessapp.netlify.app/">FitnessApp</a>
 
 This repository contains a FitnessApp built using React.js and Node.js, with the Material-UI (MUI) library. The FitnessApp allows users to search for different workouts they want to do.
 
